@@ -1,0 +1,31 @@
+{
+  "name": "photo_curation_app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "Unit Testing is a kind of white box testing, whereas Integration Testing is a kind of black-box testing. For Unit Testing, accessibility of code is required, as it tests the written code, while for Integration Testing, access to code is not required, since it tests the interactions and interfaces between modules.",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.46.1",
+    "axios": "^1.7.7",
+    "cloudinary": "^2.5.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "jest": "^29.7.0",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^1.4.5-lts.1",
+    "pg": "^8.13.1",
+    "sequelize": "^6.37.5",
+    "sharp": "^0.33.5",
+    "supertest": "^7.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}
