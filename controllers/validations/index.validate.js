@@ -69,7 +69,7 @@ const validateTags = (tags, photoId) => {
   }
 
   if (!photoId) {
-    errors.push("PhotoId is required");
+    errors.push("PhotoId is required and should be string");
   }
 
   for (let i = 0; i < tags.length; i++) {

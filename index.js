@@ -9,7 +9,6 @@ const {
   getPhotos,
   trackAndDisplaySearchHistory,
 } = require("./controllers/dataController");
-const { sequelize } = require("./models");
 const { searchImages } = require("./controllers/unsplashController");
 
 const app = express();
@@ -29,16 +28,5 @@ app.get("/api/photos/search", searchImages);
 app.get("/api/photos/tag/search", searchPhotosByTagsAndSortByDateSaved);
 app.get("/api/photos", getPhotos);
 app.get("/api/search-history", trackAndDisplaySearchHistory);
-
-sequelize
-  .authenticate()
-  .then(() => console.log("Database connected successfully :) "))
-  .catch((error) =>
-    console.log(`Unable to connect to Database, since ${error}`)
-  );
-
-app.listen(3000, () => {
-  console.log(`Example app listening on http://localhost:${3000}`);
-});
 
 module.exports = { app };

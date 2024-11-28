@@ -63,7 +63,7 @@ const createNewUser = async (req, res) => {
       .status(201)
       .json({ message: "User Created successfully.", newUser: createAUser });
   } catch (error) {
-    res.status(500).json({ error: `Failed to Create user ${error.message}` });
+    res.status(500).json({ error: `Failed to Create User.` });
   }
 };
 
@@ -99,14 +99,14 @@ const savePhotosInCollection = async (req, res) => {
 
     let newPhoto = await photoModel.create(photo);
 
-    for (const tagName of tags) {
-      await tagModel.create({ name: tagName, photoId: newPhoto.id });
-    }
-
     if (!newPhoto) {
       return res
         .status(400)
         .json({ message: "Something went wrong while, Creating photo" });
+    }
+
+    for (const tagName of tags) {
+      await tagModel.create({ name: tagName, photoId: newPhoto.id });
     }
 
     res.status(201).json({ message: "Photo saved successfully" });
@@ -135,7 +135,7 @@ const getPhotos = async (req, res) => {
 
 const addTagsForPhotos = async (req, res) => {
   try {
-    let photoId = parseInt(req.params.photoId);
+    let photoId = req.params.photoId;
 
     let { tages } = req.body;
 
